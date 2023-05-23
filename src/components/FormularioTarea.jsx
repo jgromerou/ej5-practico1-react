@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import ListaTareas from './ListaTareas';
 
 const FormularioTarea = () => {
@@ -7,7 +7,10 @@ const FormularioTarea = () => {
     JSON.parse(localStorage.getItem('listaTareas')) || [];
   const [inputTarea, setInputTarea] = useState('');
   const [listaTareas, setListaTareas] = useState(tareasDelLocalstorage);
-
+  //borrar todas las tareas del local storage
+  const borrarLocalstorage = () => {
+    setListaTareas([]);
+  };
   useEffect(() => {
     localStorage.setItem('listaTareas', JSON.stringify(listaTareas));
   }, [listaTareas]);
@@ -26,6 +29,17 @@ const FormularioTarea = () => {
 
   return (
     <section>
+      <Row>
+        <Col className="d-flex justify-content-end">
+          <Button
+            className="my-3"
+            variant="danger"
+            onClick={() => borrarLocalstorage()}
+          >
+            Borrar Lista de Tareas
+          </Button>
+        </Col>
+      </Row>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3 d-flex" controlId="tarea">
           <Form.Control
