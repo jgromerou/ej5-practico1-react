@@ -27,6 +27,11 @@ const FormularioTarea = () => {
     setInputTarea('');
   };
 
+  const borrarTarea = (nombreTarea) => {
+    let _listaTareas = listaTareas.filter((item) => item !== nombreTarea);
+    setListaTareas(_listaTareas);
+  };
+
   return (
     <section>
       <Row>
@@ -53,7 +58,10 @@ const FormularioTarea = () => {
           </Button>
         </Form.Group>
       </Form>
-      <ListaTareas listaTareas={listaTareas}></ListaTareas>
+      <ListaTareas
+        listaTareas={listaTareas}
+        borrarTarea={borrarTarea}
+      ></ListaTareas>
     </section>
   );
 };
