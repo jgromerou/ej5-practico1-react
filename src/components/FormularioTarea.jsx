@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import ListaTareas from './ListaTareas';
+import { obtenerListaTareas } from './helpers/queries';
 
 const FormularioTarea = () => {
-  let tareasDelLocalstorage =
-    JSON.parse(localStorage.getItem('listaTareas')) || [];
   const [inputTarea, setInputTarea] = useState('');
-  const [listaTareas, setListaTareas] = useState(tareasDelLocalstorage);
+  const [listaTareas, setListaTareas] = useState([]);
   //borrar todas las tareas del local storage
   const borrarLocalstorage = () => {
     setListaTareas([]);
   };
   useEffect(() => {
-    localStorage.setItem('listaTareas', JSON.stringify(listaTareas));
-  }, [listaTareas]);
+    obtenerListaTareas().then((respuesta) => {
+      setListaTareas(respuesta);
+    });
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,10 +28,10 @@ const FormularioTarea = () => {
     setInputTarea('');
   };
 
-  const borrarTarea = (nombreTarea) => {
-    let _listaTareas = listaTareas.filter((item) => item !== nombreTarea);
-    setListaTareas(_listaTareas);
-  };
+  // const borrarTarea = (nombreTarea) => {
+  //   let _listaTareas = listaTareas.filter((item) => item !== nombreTarea);
+  //   setListaTareas(_listaTareas);
+  // };
 
   return (
     <section>
@@ -52,16 +53,14 @@ const FormularioTarea = () => {
             placeholder="Ingrese una tarea"
             value={inputTarea}
             onChange={(event) => setInputTarea(event.target.value)}
+            className="me-1"
           />
           <Button variant="primary" type="submit">
             Enviar
           </Button>
         </Form.Group>
       </Form>
-      <ListaTareas
-        listaTareas={listaTareas}
-        borrarTarea={borrarTarea}
-      ></ListaTareas>
+      <ListaTareas listaTareas={listaTareas}></ListaTareas>
     </section>
   );
 };
