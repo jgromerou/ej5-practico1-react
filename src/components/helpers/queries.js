@@ -35,3 +35,18 @@ export const consultaBorrarTarea = async (id) => {
     console.log(error);
   }
 };
+
+export const consultaEditarTarea = async (tarea, id) => {
+  try {
+    const respuesta = await fetch(URLTareas + '/' + id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(tarea),
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
