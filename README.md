@@ -10,6 +10,10 @@ localstorage.
 
 [Netlify](https://ej5-tp1-react-rollingcode-romerouro.netlify.app/)
 
+## Comando para ejecutar el json-server
+
+json-server --watch db.json --port 3004
+
 ## Tecnologias / Herramientas 🛠
 
 - [HTML](https://developer.mozilla.org/es/docs/Web/HTML)
