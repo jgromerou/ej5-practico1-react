@@ -24,3 +24,14 @@ export const consultaAgregarTarea = async (tarea) => {
     console.log(error);
   }
 };
+
+export const consultaBorrarTarea = async (id) => {
+  try {
+    const respuesta = await fetch(`${URLTareas}/${id}`, {
+      method: 'DELETE',
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
