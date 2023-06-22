@@ -66,7 +66,7 @@ const FormularioTarea = () => {
           <Form.Control
             className="col-sm-9"
             type="text"
-            placeholder="Ingrese un nombre de usuario"
+            placeholder="Ingrese una nueva tarea"
             {...register('nombreTarea', {
               required: 'El Nombre de la Tarea es un dato obligatorio.',
               pattern: {

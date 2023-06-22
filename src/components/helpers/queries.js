@@ -10,6 +10,16 @@ export const obtenerListaTareas = async () => {
   }
 };
 
+export const consultaTarea = async (id) => {
+  try {
+    const respuesta = await fetch(URLTareas + '/' + id);
+    const tarea = await respuesta.json();
+    return tarea;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const consultaAgregarTarea = async (tarea) => {
   try {
     const respuesta = await fetch(URLTareas, {

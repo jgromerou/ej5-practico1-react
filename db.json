@@ -17,12 +17,8 @@
       "nombreTarea": "Testear"
     },
     {
-      "nombreTarea": "testBorrar",
+      "nombreTarea": "testTRES",
       "id": 5
-    },
-    {
-      "nombreTarea": "test dos",
-      "id": 6
     }
   ]
 }
