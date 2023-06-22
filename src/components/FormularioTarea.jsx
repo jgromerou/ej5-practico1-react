@@ -3,23 +3,18 @@ import { Form, Button, Row, Col } from 'react-bootstrap';
 import ListaTareas from './ListaTareas';
 import { obtenerListaTareas, consultaAgregarTarea } from './helpers/queries';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
 const FormularioTarea = () => {
-  const [inputTarea, setInputTarea] = useState('');
   const [listaTareas, setListaTareas] = useState([]);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
     reset,
   } = useForm();
 
-  //borrar todas las tareas del local storage
-  const borrarLocalstorage = () => {
-    setListaTareas([]);
-  };
   useEffect(() => {
     obtenerListaTareas().then((respuesta) => {
       setListaTareas(respuesta);
@@ -29,34 +24,33 @@ const FormularioTarea = () => {
   const onSubmit = (datos) => {
     console.log('tarea', datos);
     consultaAgregarTarea(datos).then((respuestaCreado) => {
-      console.log(respuestaCreado);
-      // if (respuestaCreado && respuestaCreado.status === 201) {
-      //   Swal.fire(
-      //     'Receta creada',
-      //     `La tarea ${inputTarea} fue creada correctamente`,
-      //     'success'
-      //   );
-      //   reset();
-      // } else {
-      //   Swal.fire(
-      //     'Ocurrio un error',
-      //     `La tarea ${inputTarea} no fue creada, intentelo mas tarde`,
-      //     'error'
-      //   );
-      // }
+      if (respuestaCreado && respuestaCreado.status === 201) {
+        Swal.fire(
+          'Receta creada',
+          `La tarea ${datos.nombreTarea} fue creada correctamente`,
+          'success'
+        );
+        //actualizar la lista de tareas
+        obtenerListaTareas().then((respuesta) => setListaTareas(respuesta));
+        reset();
+      } else {
+        Swal.fire(
+          'Ocurrio un error',
+          `La tarea ${datos.inputTarea} no fue creada, intentelo mas tarde`,
+          'error'
+        );
+      }
     });
-  };
-
-  const agregarTarea = (tarea) => {
-    //se agrega nueva tarea a la lista de tareas
-    setListaTareas([...listaTareas, tarea]);
-    //limpiar el input Tarea
-    setInputTarea('');
   };
 
   // const borrarTarea = (nombreTarea) => {
   //   let _listaTareas = listaTareas.filter((item) => item !== nombreTarea);
   //   setListaTareas(_listaTareas);
+  // };
+
+  //borrar todas las tareas del local storage
+  //  const borrarLocalstorage = () => {
+  //   setListaTareas([]);
   // };
 
   return (
