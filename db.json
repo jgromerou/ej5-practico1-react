@@ -19,6 +19,10 @@
     {
       "nombreTarea": "testBorrar",
       "id": 5
+    },
+    {
+      "nombreTarea": "test dos",
+      "id": 6
     }
   ]
 }

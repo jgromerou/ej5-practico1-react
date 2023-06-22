@@ -70,8 +70,8 @@ const FormularioTarea = () => {
             {...register('nombreTarea', {
               required: 'El Nombre de la Tarea es un dato obligatorio.',
               pattern: {
-                value: /^[A-Za-z]+$/,
-                message: 'Por favor, ingrese solo letras.',
+                value: /^[A-Za-z\s]+$/,
+                message: 'Por favor, ingrese solo letras y espacios.',
               },
             })}
           />
