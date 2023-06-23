@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import ListaTareas from './ListaTareas';
-import { obtenerListaTareas, consultaAgregarTarea } from './helpers/queries';
+import {
+  obtenerListaTareas,
+  consultaAgregarTarea,
+  consultaTarea,
+  consultaBorrarTarea,
+} from './helpers/queries';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 
@@ -43,10 +48,44 @@ const FormularioTarea = () => {
     });
   };
 
-  //borrar todas las tareas del local storage
-  //  const borrarLocalstorage = () => {
-  //   setListaTareas([]);
-  // };
+  //borrar todas las tareas del json-server
+  const borrarLocalstorage = () => {
+    Swal.fire({
+      title: `¿Estás seguro de borrar toda la lista de tareas?`,
+      text: 'No se puede revertir este paso',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Borrar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        //borrar la lista de tareas de la API
+        listaTareas.filter((tarea) =>
+          consultaBorrarTarea(tarea.id).then((respuesta) => {
+            if (respuesta) {
+              console.log(respuesta);
+              Swal.fire(
+                'Lista de Tareas eliminada',
+                `la lista completa fue eliminada correctamente`,
+                'success'
+              );
+              obtenerListaTareas().then((respuesta) => {
+                setListaTareas(respuesta);
+              });
+            } else {
+              Swal.fire(
+                'Ocurrio un error',
+                `No se puede borrar la tarea, intentelo mas tarde`,
+                'error'
+              );
+            }
+          })
+        );
+      }
+    });
+  };
 
   return (
     <section>

@@ -1,24 +1,3 @@
 {
-  "tareas": [
-    {
-      "id": 1,
-      "nombreTarea": "Planificar"
-    },
-    {
-      "id": 2,
-      "nombreTarea": "Organizar"
-    },
-    {
-      "id": 3,
-      "nombreTarea": "Codear"
-    },
-    {
-      "id": 4,
-      "nombreTarea": "Testear"
-    },
-    {
-      "nombreTarea": "testTRES",
-      "id": 5
-    }
-  ]
+  "tareas": []
 }
