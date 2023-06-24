@@ -9,11 +9,11 @@ en el input y presionar enter, esta tarea se debe mostrar en una lista donde las
 
 **Importante:** Tiene que estar levantado de forma local el json server
 
-- Comando para ejecutar el json-server
+- se ejecuta el comando en una terminal para ejecutar el json-server
 
 json-server --watch db.json --port 3004
 
-[Netlify](https://ej5-tp1-react-rollingcode-romerouro.netlify.app/)
+[Netlify](https://listadetareas-jsonserver-rollingcode.netlify.app/)
 
 ## Tecnologias / Herramientas 🛠
 

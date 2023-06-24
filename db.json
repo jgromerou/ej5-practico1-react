@@ -21,8 +21,16 @@
       "id": 5
     },
     {
-      "nombreTarea": "test para borrar",
+      "nombreTarea": "test para editar",
       "id": 6
+    },
+    {
+      "nombreTarea": "prueba en prod",
+      "id": 7
+    },
+    {
+      "nombreTarea": "test para borrar",
+      "id": 8
     }
   ]
 }
