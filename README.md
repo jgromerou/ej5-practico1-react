@@ -1,18 +1,19 @@
-# Ejercicio 5 del TP1: Lista de Tareas con (Localstorage) - React ![React Icon](./src/assets/react.svg)
+# Ejercicio 5 del TP1: Lista de Tareas con (Json Server) - React ![React Icon](./src/assets/react.svg)
 
 ## Descripción
 
 Crear una aplicación web que muestre una lista de tareas, al ingresar una tarea
-en el input y presionar enter, esta tarea se debe mostrar en una lista donde las tareas se puedan almacenar en el
-localstorage.
+en el input y presionar enter, esta tarea se debe mostrar en una lista donde las tareas se puedan almacenar en el json server
 
 ## Link Versión en Producción
 
-[Netlify](https://ej5-tp1-react-rollingcode-romerouro.netlify.app/)
+**Importante:** Tiene que estar levantado de forma local el json server
 
-## Comando para ejecutar el json-server
+- Comando para ejecutar el json-server
 
 json-server --watch db.json --port 3004
+
+[Netlify](https://ej5-tp1-react-rollingcode-romerouro.netlify.app/)
 
 ## Tecnologias / Herramientas 🛠
 

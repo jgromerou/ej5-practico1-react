@@ -49,7 +49,7 @@ const FormularioTarea = () => {
   };
 
   //borrar todas las tareas del json-server
-  const borrarLocalstorage = () => {
+  const borrarlistaTareas = () => {
     Swal.fire({
       title: `¿Estás seguro de borrar toda la lista de tareas?`,
       text: 'No se puede revertir este paso',
@@ -94,7 +94,7 @@ const FormularioTarea = () => {
           <Button
             className="my-3"
             variant="danger"
-            onClick={() => borrarLocalstorage()}
+            onClick={() => borrarlistaTareas()}
           >
             Borrar Lista de Tareas
           </Button>

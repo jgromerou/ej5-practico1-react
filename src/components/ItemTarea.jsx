@@ -47,7 +47,7 @@ const ItemTarea = ({ tarea, setListaTareas }) => {
       if (respuestaEditado && respuestaEditado.status === 200) {
         Swal.fire(
           'Tarea editada',
-          `La tarea ${tarea.nombreTarea} fue editado correctamente`,
+          `La tarea ${tarea.nombreTarea} fue editada correctamente`,
           'success'
         );
         //actualizar la lista de tareas.
@@ -142,7 +142,7 @@ const ItemTarea = ({ tarea, setListaTareas }) => {
 
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
-                Close
+                Cancelar
               </Button>
               <Button variant="secondary" type="submit">
                 Enviar
