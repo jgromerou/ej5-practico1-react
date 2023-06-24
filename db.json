@@ -1,8 +1,28 @@
 {
   "tareas": [
     {
-      "nombreTarea": "cinco",
-      "id": 1
+      "id": 1,
+      "nombreTarea": "Planificar"
+    },
+    {
+      "id": 2,
+      "nombreTarea": "Organizar"
+    },
+    {
+      "id": 3,
+      "nombreTarea": "Codear"
+    },
+    {
+      "id": 4,
+      "nombreTarea": "Testear"
+    },
+    {
+      "nombreTarea": "testTRES",
+      "id": 5
+    },
+    {
+      "nombreTarea": "test para borrar",
+      "id": 6
     }
   ]
 }
